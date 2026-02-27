@@ -1,0 +1,16 @@
+name: CI  # Name your workflow (shows in Actions tab)
+
+on:
+  push:
+    branches: [ main ]  # Triggers on pushes to main
+  pull_request:
+    branches: [ main ]  # Triggers on PRs to main
+  workflow_dispatch:  # Allows manual trigger—key for testing!
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Free GitHub runner (like a virtual machine)
+    steps:
+      - uses: actions/checkout@v4  # Grabs your code
+      - name: Run a test
+        run: echo "Hello, workflow works!"  # Simple step that always passes
